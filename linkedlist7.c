@@ -6,12 +6,18 @@ struct Node
     struct Node* link;
 };
 
-struct Node* deleteFirst(struct Node* a)
+void deleteAtIndex(struct Node* a,int index)
 {
-    struct Node* ptr=a;
-    a=a->link;
-    free(ptr);
-    return a;
+    struct Node* p=a;
+    int i=0;
+    while(i<index-1)
+    {
+        p=p->link;
+        i++;
+    }
+    struct Node* q=p->link;
+    p->link=q->link;
+    free(q);
 }
 
 void linkedlistTraversal(struct Node* ptr)
@@ -47,9 +53,14 @@ int main()
     second->link=third;
 
     
+    struct Node* fourth;
+    fourth=(struct Node *)malloc(sizeof(struct Node));
+    fourth->data=4;
+    fourth->link=NULL;
+    third->link=fourth;
 
     linkedlistTraversal(head);
-    head=deleteFirst(head);
+    deleteAtIndex(head,2);
     printf("after deletion \n");
     linkedlistTraversal(head);
 }
