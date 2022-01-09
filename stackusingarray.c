@@ -59,6 +59,15 @@ struct stack pop(struct stack s)
     }
 }
 
+void print(struct stack s)
+{
+    printf("Displaying the stack :\n");
+    for(int i=0;i<=s.top;i++)
+    {
+        printf("%d\n",s.arr[i]);
+    }
+}
+
 int main()
 {
     struct stack s;
@@ -74,6 +83,7 @@ int main()
     s=push(s,25);
     s=push(s,75);
     s=push(s,85);
+    print(s);
     s=push(s,65);
     s=push(s,56);
     s=pop(s);
@@ -81,10 +91,6 @@ int main()
     s=pop(s);
     s=pop(s);
     s=pop(s);
-    printf("Element present in  stack.\n");
-    for(int i=0;i<=s.top;i++)
-    {
-        printf("%d\n",s.arr[i]);
-    }
+
     return 0;
 }
