@@ -42,6 +42,10 @@ struct stack push(struct stack s,int data)
     return s;
 }
 
+int peek(struct stack s)
+{
+    return s.arr[s.top];
+}
 struct stack pop(struct stack s)
 {
     if(isEmpty(s)){
@@ -73,6 +77,7 @@ int main()
     s=push(s,65);
     s=push(s,56);
     s=pop(s);
+    printf("peek is %d \n",peek(s));
     s=pop(s);
     s=pop(s);
     s=pop(s);
